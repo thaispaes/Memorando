@@ -28,6 +28,21 @@
 
 Projeto de front end desenvolvido para o curso do BFD baseado no projeto <a href=" https://www.figma.com/design/Yb9IBH56g7T1hdIyZ3BMNO/Desafios---CodeLab?node-id=286014-1329&t=PnbVyvhBAcexIN11-0 - MEMOWEEN"> MEMOWEEN</a> que é um jogo da memoria, mas com um toque especial meu, então ao invés de usar os "gatos de haloween" como no projeto usei imagens do meu anime favorito "One Piece", variando em vários personagens e figuras do anime.
 
+## 📌 Etapas do projeto
+
+- [x] Task 1 - Definição do projeto
+- [x] Task 2 - Desenho da solução 
+- [x] Task 3 - Definição de cores e fonte
+- [x] Task 4 - Estruturação do projeto
+- [x] Task 5 - Front end estruturado
+- [x] Task 6 - Responsividade
+- [] Task 7 - Teste em várias plataformas
+- [] Task 8 - Animações
+- [] Task 9 - Backend
+- [] Task 10 - Teste final com usuários reais
+- [] Task 11 - Deploy
+ 
+
 ## ❌ Dificuldades do projeto
 
 - Apesar de ter um template, teve meu toque de criatividade, então eu fiz um pequeno esboço de como seria o front antes de iniciar Link: <a href="https://www.figma.com/design/GAD0OVuLu5yzpuJFn6dZv5/Projeto-Memorando?node-id=0-1&t=8BHSeXJzAXnOuZFg-1">FIGMA</a>
@@ -37,7 +52,7 @@ Projeto de front end desenvolvido para o curso do BFD baseado no projeto <a href
 
 ## 🔧 Como usar
 
-- Acessar o link => para conseguir jogar o Memorando
+- Acessar o 🔗 link => para conseguir jogar o Memorando
 
 ## 🖥️ Tecnologias implementadas
 
