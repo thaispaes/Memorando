@@ -10,7 +10,8 @@
     />
     <link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="stylesheet" href="./assets/css/animations.css" />
-    <script src="./assets/js/animations.js"></script>
+    <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/animations.js" defer></script>
     <title>Memorando</title>
   </head>
   <body>
@@ -49,11 +50,13 @@
       </section>
 
       <section id="gameSection" class="gameContainer">
-        <button id="startButton" class="startButton" hidden>
+        <!-- Inicio do jogo -->
+        <button id="startButton" class="startButton" onclick="iniciarJogo(this)">
           Iniciar Jogo
         </button>
+
         <!-- GameBoard com os cards do jogo -->
-        <div id="gameBoard" class="gameBoard">
+        <div id="gameBoard" class="gameBoard  hidden">
 
           <!-- Exemplo das cartas com o Luffy -->
           <div class="cardGame" data-card-value="1" onclick="flipCard(this)">
