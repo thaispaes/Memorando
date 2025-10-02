@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 nav {
   width: 100%;
   display: flex;
@@ -33,7 +38,10 @@ nav {
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: var(--white-color);
+  background-color: var(--secondary-color);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 header {
@@ -59,14 +67,17 @@ header {
     font-family: var(--pt-sans-regular) !important;
     font-size: 18px;
     font-style: italic;
-    line-height: 1.6; 
+    line-height: 1.6;
   }
 }
 
 main {
   width: 100%;
-  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
   background-color: var(--secondary-color);
+  position: relative;
 
   .instructions {
     display: flex;
@@ -77,7 +88,7 @@ main {
 
 .gameContainer {
   width: 100%;
-  min-height: 440px;
+  margin: 15px auto 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,9 +96,9 @@ main {
   background-color: var(--white-color);
   border-radius: 10px;
   border: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding: 20px;
-  margin-top: 15px;
 
   transition: all 0.3s ease;
 
@@ -116,21 +127,28 @@ main {
     flex-direction: row;
     justify-content: center;
     padding: 10px;
+    max-width: 100%;
     /* background-color: var(--secondary-color); */
-
   }
 
   .cardGame {
     width: 160px;
     height: 160px;
-    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    margin: 10px;
     background-color: var(--button-background-color);
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    flex-shrink: 0;
+  }
 
+  .cardGame img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
   }
 
   .score-board {
@@ -141,7 +159,6 @@ main {
     padding: 10px;
     font-size: 18px;
     color: var(--text-color-white);
-
   }
 
   .score-board p {
@@ -150,8 +167,9 @@ main {
     background-color: var(--button-background-color);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-    
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+
     transition: all 0.3s ease;
   }
 
@@ -159,7 +177,6 @@ main {
     font-weight: bold;
     color: var(--lighter-blue-color);
   }
-  
 }
 
 footer {
@@ -169,4 +186,292 @@ footer {
   color: var(--text-color-white);
   font-style: italic;
   text-align: center;
+}
+
+/* Tablets e telas maiores sem ser computador */
+@media (min-width: 980px) and (max-width: 1280px) {
+  header {
+    margin: 10px;
+    padding: 20px;
+
+    .header-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .header-subtitle {
+      font-size: 28px;
+    }
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .instructions {
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .instructions .hover-me {
+    width: 100%;
+    font-size: 24px;
+    padding: 20px;
+  }
+
+  .gameContainer {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .gameBoard {
+    gap: 15px;
+    width: 100%;
+  }
+
+  .cardGame {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .score-board {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+
+  .score-board p {
+    margin: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 25px;
+  }
+}
+
+/* Tablets e telas médias */
+@media (min-width: 766px) and (max-width: 940px) {
+  header {
+    margin: 10px;
+    padding: 20px;
+    justify-content: center;
+
+    .header-title {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .header-subtitle {
+      font-size: 24px;
+      padding: 0 10px;
+    }
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .instructions {
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+
+  .instructions .hover-me {
+    width: 100%;
+    font-size: 24px;
+    padding: 20px;
+  }
+
+  .gameContainer {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .gameBoard {
+    gap: 15px;
+    width: 100%;
+  }
+
+  .cardGame {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .score-board {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+
+  .score-board p {
+    margin: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+/* Celulares e telas pequenas */
+@media (min-width: 375px) and (max-width: 765px) {
+  nav {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 5px;
+
+    .title {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+  }
+
+  header {
+    width: 100%;
+    padding: 25px;
+
+    .header-title {
+      font-size: 24px;
+    }
+
+    .header-subtitle {
+      font-size: 16px;
+    }
+  }
+
+  main {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .instructions {
+    justify-content: center;
+  }
+
+  .instructions .hover-me {
+    width: 100%;
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .tooltip::after {
+    display: none;
+  }
+
+  .gameContainer {
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0 0;
+    padding: 15px 10px;
+
+    .gameBoard {
+      gap: 10px;
+    }
+
+    .cardGame {
+      width: 120px;
+      height: 120px;
+    }
+
+    .score-board {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .score-board p {
+      margin: 0;
+      width: 90%;
+      text-align: center;
+    }
+  }
+
+  footer {
+    width: 100%;
+    font-size: 14px;
+    padding: 15px 10px;
+  }
+}
+
+/* Celulares e telas muito pequenas */
+@media (max-width: 360px) {
+  nav {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 5px;
+
+    .title {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+  }
+
+  header {
+    width: 100%;
+    padding: 20px;
+
+    .header-title {
+      font-size: 24px;
+    }
+
+    .header-subtitle {
+      font-size: 16px;
+    }
+  }
+
+  main {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .instructions {
+    justify-content: center;
+  }
+
+  .instructions .hover-me {
+    width: 100%;
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .tooltip::after {
+    display: none;
+  }
+
+  .gameContainer {
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0 0;
+    padding: 15px 10px;
+
+    .gameBoard {
+      gap: 10px;
+    }
+
+    .cardGame {
+      width: 100px;
+      height: 100px;
+    }
+
+    .score-board {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .score-board p {
+      margin: 0;
+      width: 90%;
+      text-align: center;
+    }
+  }
+
+  footer {
+    width: 100%;
+    font-size: 14px;
+    padding: 15px 10px;
+  }
 }
