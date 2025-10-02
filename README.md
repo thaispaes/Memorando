@@ -13,7 +13,7 @@
     alt="Repository Size"
   />
   <img
-    src="https://img.shields.io/github/commit-activity/t/Thomazrlima/README.md-Templates?style=flat&logo=github"
+    src="https://img.shields.io/github/commit-activity/t/thaispaes/Memorando?style=flat&logo=github"
     alt="Commit Activity"
   />
   <a href="LICENSE.md"
