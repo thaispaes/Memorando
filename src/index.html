@@ -37,8 +37,29 @@
       </section>
 
       <section id="gameSection" class="gameContainer" >
-        <button id="startButton" class="startButton">Iniciar Jogo</button>
-        <div id="gameBoard" class="game-board" hidden></div>
+        <button id="startButton" class="startButton" hidden>Iniciar Jogo</button>
+        <div id="gameBoard" class="gameBoard">
+            <!-- Cartas do jogo serão geradas aqui -->
+                <div class="cardGame" data-card-value="1">
+                    <img src="../assets/img/gameIcons/image1.png" alt="Carta 1" />
+                </div>
+                <div class="cardGame" data-card-value="2">
+                    <img src="../assets/img/gameIcons/image1.png" alt="Carta 1" />
+                </div>
+                <div class="cardGame" data-card-value="3">
+                    <img src="../assets/img/gameIcons/image2.png" alt="Carta 2" />
+                </div>
+                <div class="cardGame" data-card-value="4">
+                    <img src="../assets/img/gameIcons/image2.png" alt="Carta 2" />
+                </div>
+                <div class="cardGame" data-card-value="5">
+                    <img src="../assets/img/gameIcons/image3.png" alt="Carta 3" />
+                </div>
+                <div class="cardGame" data-card-value="6">
+                    <img src="../assets/img/gameIcons/image3.png" alt="Carta 3" />
+                </div>
+                
+        </div>
         <div id="scoreBoard" class="score-board" hidden>
           <p>Pontuação: <span id="score">0</span></p>
           <p>Tempo: <span id="timer">0</span> segundos</p>
