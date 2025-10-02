@@ -148,6 +148,10 @@ main {
     transform: translateY(-5px);
   }
 
+  .cardGame:hover {
+    transform: translateX(-5px);
+  }
+
   
   .card-front,
   .card-back {

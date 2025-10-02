@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/img/favicon/favicon.ico"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/animations.css" />
+    <script src="./assets/js/animations.js"></script>
+    <title>Memorando</title>
+  </head>
+  <body>
+    <nav>
+      <picture>
+        <img class="logo" src="./assets/img/logo.png" alt="Logo da Empresa" />
+      </picture>
+      <h1 class="title">Memorando</h1>
+    </nav>
+    <header>
+      <h2 class="header-title">
+        Bem vindo ao <span class="highlight">Memorando</span>
+      </h2>
+      <p class="header-subtitle">
+        Navegue pela memória e descubra os segredos da Grand Line! <br />Junte
+        as peças, viva a aventura e só o mais atento se tornará o rei dos
+        piratas.
+      </p>
+    </header>
+    <main>
+      <section id="instructions" class="instructions">
+        <div class="tooltip-wrapper">
+          <button class="hover-me">Instruções do Jogo ℹ️</button>
+          <div class="tooltip">
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <p class="instructions-list">
+              Clique no botão "Iniciar Jogo" para começar. <br />
+              Clique em duas cartas para virá-las, se forem iguais, você marca
+              um ponto! O jogo termina quando o tempo acabar ou quando todos os
+              pares forem encontrados. 🚀
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gameSection" class="gameContainer">
+        <button id="startButton" class="startButton" hidden>
+          Iniciar Jogo
+        </button>
+        <!-- GameBoard com os cards do jogo -->
+        <div id="gameBoard" class="gameBoard">
+
+          <!-- Exemplo das cartas com o Luffy -->
+          <div class="cardGame" data-card-value="1" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image1.png" alt="Carta 1" />
+            </div>
+          </div>
+          <div class="cardGame" data-card-value="1" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image1.png" alt="Carta 1" />
+            </div>
+          </div>
+          <!-- Exemplo das cartas com outros modelos -->
+          <div class="cardGame" data-card-value="2" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image30.png" alt="Carta 1" />
+            </div>
+          </div>
+          <div class="cardGame" data-card-value="2" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image30.png" alt="Carta 1" />
+            </div>
+          </div>
+          
+          <div class="cardGame" data-card-value="3" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image22.png" alt="Carta 1" />
+            </div>
+          </div>
+          <div class="cardGame" data-card-value="3" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image22.png" alt="Carta 1" />
+            </div>
+          </div>
+
+          <div class="cardGame" data-card-value="4" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image12.png" alt="Carta 1" />
+            </div>
+          </div>
+          <div class="cardGame" data-card-value="4" onclick="flipCard(this)">
+            <div class="card-front">
+              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+            </div>
+            <div class="card-back">
+              <img src="./assets/img/gameIcons/image12.png" alt="Carta 1" />
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Placar do jogo, dificuldade e timer -->
+        <div id="scoreBoard" class="score-board" style="display: none">
+          <p>Pontuação: <span id="score">0</span></p>
+          <p>Tempo: <span id="timer">0</span> segundos</p>
+          <p>Dificuldade: <span id="difficulty">Facil</span></p>
+        </div>
+      </section>
+
+      <!-- Mensagem de Fim de jogo -->
+      <section id="gameOverSection" hidden>
+        <div id="gameOver" class="game-over">
+          <h2>Fim de Jogo!</h2>
+          <p>Sua pontuação final é: <span id="finalScore">0</span></p>
+          <button id="restartButton">Reiniciar Jogo</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Memorando. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>
