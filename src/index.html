@@ -3,9 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/img/favicon/favicon.ico"
+    />
     <link rel="stylesheet" href="../assets/css/index.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../assets/css/animations.css" />
+    <script src="../assets/js/animations.js"></script>
     <title>Memorando</title>
   </head>
   <body>
@@ -16,12 +21,17 @@
       <h1 class="title">Memorando</h1>
     </nav>
     <header>
-      <h2 class="header-title">Bem vindo ao <span class="highlight">Memorando</span></h2>
-      <p class="header-subtitle">Navegue pela memória e descubra os segredos da Grand Line! <br>Junte as peças, viva a aventura e só o mais atento se tornará o rei dos piratas.</p>
+      <h2 class="header-title">
+        Bem vindo ao <span class="highlight">Memorando</span>
+      </h2>
+      <p class="header-subtitle">
+        Navegue pela memória e descubra os segredos da Grand Line! <br />Junte
+        as peças, viva a aventura e só o mais atento se tornará o rei dos
+        piratas.
+      </p>
     </header>
     <main>
-      
-        <section id="instructions" class="instructions">
+      <section id="instructions" class="instructions">
         <div class="tooltip-wrapper">
           <button class="hover-me">Instruções do Jogo ℹ️</button>
           <div class="tooltip">
@@ -29,48 +39,40 @@
             <span class="star">⭐</span>
             <span class="star">⭐</span>
             <p class="instructions-list">
-              Clique no botão "Iniciar Jogo" para começar. <br> Clique em duas
-              cartas para virá-las, se forem iguais, você marca um ponto! O jogo termina quando
-              o tempo acabar ou quando todos os pares forem encontrados. 🚀
+              Clique no botão "Iniciar Jogo" para começar. <br />
+              Clique em duas cartas para virá-las, se forem iguais, você marca
+              um ponto! O jogo termina quando o tempo acabar ou quando todos os
+              pares forem encontrados. 🚀
             </p>
           </div>
         </div>
       </section>
 
-      <section id="gameSection" class="gameContainer" >
-        <button id="startButton" class="startButton" hidden>Iniciar Jogo</button>
+      <section id="gameSection" class="gameContainer">
+        <button id="startButton" class="startButton" hidden>
+          Iniciar Jogo
+        </button>
+
         <div id="gameBoard" class="gameBoard">
-            <!-- Cartas do jogo serão geradas aqui -->
-                <div class="cardGame" data-card-value="1">
-                    <img src="../assets/img/gameIcons/image1.png" alt="Carta 1" />
-                </div>
-                <div class="cardGame" data-card-value="2">
-                    <img src="../assets/img/gameIcons/image21.png" alt="Carta 1" />
-                </div>
-                <div class="cardGame" data-card-value="3">
-                    <img src="../assets/img/gameIcons/image5.png" alt="Carta 2" />
-                </div>
-                <div class="cardGame" data-card-value="4">
-                    <img src="../assets/img/gameIcons/image7.png" alt="Carta 2" />
-                </div>
-                <div class="cardGame" data-card-value="5">
-                    <img src="../assets/img/gameIcons/image5.png" alt="Carta 3" />
-                </div>
-                <div class="cardGame" data-card-value="6">
-                    <img src="../assets/img/gameIcons/image7.png" alt="Carta 3" />
-                </div>
-                <div class="cardGame" data-card-value="7">
-                    <img src="../assets/img/gameIcons/image1.png" alt="Carta 4" />
-                </div>
-                <div class="cardGame" data-card-value="8">
-                    <img src="../assets/img/gameIcons/image21.png" alt="Carta 4" />
-                </div>
-                
+          <div class="cardGame" data-card-value="1" onclick="flipCard(this)">
+            <div class="card-front"></div>
+            <div class="card-back">
+              <img src="../assets/img/gameIcons/image1.png" alt="Carta 1" />
+            </div>
+          </div>
+
+          <div class="cardGame" data-card-value="1" onclick="flipCard(this)">
+            <div class="card-front"></div>
+            <div class="card-back">
+              <img src="../assets/img/gameIcons/image1.png" alt="Carta 1" />
+            </div>
+          </div>
         </div>
-        <div id="scoreBoard" class="score-board">
+
+        <div id="scoreBoard" class="score-board" style="display: none">
           <p>Pontuação: <span id="score">0</span></p>
           <p>Tempo: <span id="timer">0</span> segundos</p>
-        <p>Dificuldade: <span id="difficulty">Facil</span></p>
+          <p>Dificuldade: <span id="difficulty">Facil</span></p>
         </div>
       </section>
       <section id="gameOverSection" hidden>

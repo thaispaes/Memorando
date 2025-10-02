@@ -1,0 +1,27 @@
+.card-front {
+    background-color: var(--button-background-color);
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+
+  .card-front::before {
+    content: "?";
+    color: var(--text-color-white);
+    font-size: 48px;
+    font-weight: bold;
+    font-family: var(--dosis-bold);
+  }
+
+  .card-back {
+    background-color: var(--button-background-color);
+    transform: rotateY(180deg);
+    z-index: 1;
+  }
+
+  .cardGame.flipped .card-front {
+    transform: rotateY(-180deg);
+  }
+
+  .cardGame.flipped .card-back {
+    transform: rotateY(0deg);
+  }
