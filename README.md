@@ -9,7 +9,7 @@
 
 <p align="center">
   <img
-    src="https://img.shields.io/github/repo-size/Thomazrlima/README.md-Templates?style=flat"
+    src="https://img.shields.io/github/repo-size/thaispaes/Memorando"
     alt="Repository Size"
   />
   <img
@@ -18,7 +18,7 @@
   />
   <a href="LICENSE.md"
     ><img
-      src="https://img.shields.io/github/license/Thomazrlima/README.md-Templates"
+      src="https://img.shields.io/github/license/thaispaes/Memorando"
       alt="License"
   /></a>
 </p>
