@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <script src="script.js"></script>
+    <title>Memorando</title>
+</head>
+<body>
+    <nav>
+        <picture>
+            <img class="logo" src="../assets/img/logo.png" alt="Logo da Empresa">
+        </picture>
+        <h1 class="title">Memorando</h1>
+    </nav>
+    <header>
+        <h2 class="header-title">Bem vindo ao Memorando</h2>
+        <p class="header-subtitle">Seu jogo da memória mais divertido!!</p>
+    </header>
+    <main>
+        <section id="instructions">
+            <h3 class="instructions-title">Instruções do Jogo</h3>
+            <ul class="instructions-list">
+                <li>Clique no botão "Iniciar Jogo" para começar.</li>
+                <li>Você terá 60 segundos para encontrar o maior número de pares possível.</li>
+                <li>Clique em duas cartas para virá-las. Se forem iguais, você marca um ponto!</li>
+                <li>Se não forem iguais, elas serão viradas novamente.</li>
+                <li>O jogo termina quando o tempo acabar ou quando todos os pares forem encontrados.</li>
+            </ul>
+        </section>
+        <section id="gameSection">
+            <button id="startButton">Iniciar Jogo</button>
+            <div id="gameBoard" class="game-board" hidden></div>
+            <div id="scoreBoard" class="score-board" hidden>
+                <p>Pontuação: <span id="score">0</span></p>
+                <p>Tempo: <span id="timer">0</span> segundos</p>
+            </div>
+        </section>
+        <section id="gameOverSection" hidden>
+            <div id="gameOver" class="game-over"> 
+            <h2>Fim de Jogo!</h2>
+            <p>Sua pontuação final é: <span id="finalScore">0</span></p>
+            <button id="restartButton">Reiniciar Jogo</button>
+        </div>
+        </section>
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Memorando. Todos os direitos reservados por Thais Paes.</p>
+    </footer>
+</body>
+</html>
