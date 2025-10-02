@@ -40,7 +40,7 @@ body {
 
 header {
   width: 100%;
-  padding:80px;
+  padding:50px;
   background-color: var(--secondary-color);
   color: var(--text-color-white);
   text-align: center;
@@ -51,11 +51,10 @@ header {
   }
 }
 
-
-
 main {
     width: 100%;
     padding: 50px;
+    background-color: var(--secondary-color);
 
     .instructions {
       display: flex;
@@ -64,10 +63,47 @@ main {
     }
 }
 
+.gameContainer {
+  width: 100%;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 20px;
+  margin-top: 20px;
+  
+  transition: all 0.3s ease;
+
+  .startButton {
+    padding: 20px 60px;
+    background-color: var(--button-background-color);
+    color: var(--text-color-white);
+    font-size: 18px;
+    font-family: var(--dosis-bold);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .startButton:hover {
+      background-color: var(--primary-color);
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+  }
+}
+
 footer {
   width: 100%;
   background-color: var(--secondary-color);
   padding: 20px;
   color: var(--text-color-white);
   font-style: italic;
+  text-align: center;
 }
