@@ -1,2 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+.pt-sans-regular {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pt-sans-bold {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-sans-regular-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.pt-sans-bold-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+.dosis-regular {
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dosis-bold {
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.dosis-italic {
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.dosis-bold-italic {
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+.noto-sans-regular {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+
+.noto-sans-bold {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  
+}
+
+.noto-sans-regular-italic {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  
+}
+
+.noto-sans-bold-italic {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  
+}

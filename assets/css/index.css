@@ -15,7 +15,7 @@ nav {
   flex-direction: row;
   align-items: center;
   padding: 10px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--text-color-white);
 
   .logo {
@@ -24,16 +24,17 @@ nav {
   }
 
   .title {
-    font-family: "Noto Sans", sans-serif;
+    font-family: var(--dosis-regular);
     font-style: italic;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
+
 header {
   padding: 20px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--text-color-white);
 }
 
@@ -43,7 +44,7 @@ main {
 }
 
 footer {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   padding: 20px;
   color: var(--text-color-white);
   font-style: italic;
