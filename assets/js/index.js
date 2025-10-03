@@ -8,6 +8,8 @@ import {
 import { dificultyLevel } from "./dificultyLevel.js";
 import { startButton, cardGame, cardGameImageSelected } from "./elements.js";
 
+
+
 // Adiciona evento de clique ao botão de iniciar jogo
 startButton.addEventListener("click", () => startGame(startButton));
 
@@ -38,7 +40,7 @@ function startGame(buttonClicked) {
     showAnimateCards();
 
     // Gera as imagens aleatórias para o jogo
-    randomImages(dificultyLevel.medium); // Inicia o jogo com nível médio por padrão
+    randomImages(dificultyLevel.easy); // Inicia o jogo com nível médio por padrão
 
     // Adiciona os event listeners às cartas após elas serem criadas
     setTimeout(() => {
