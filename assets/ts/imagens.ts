@@ -36,8 +36,7 @@ export const IMAGES: { id: number; src: string; alt: string }[] = [
     {id: 33, src: './img/gameIcons/image34.png', alt: 'Image 34'},
 ]
 
-export let selectedImages: { id: number; src: string; alt: string }[] = [];
-
+// Função para gerar números aleatórios sem repetição
 export function getRandomNumber(quantityNumbers: number): number[] {
     const randomNumbers: number[] = [];
     while (randomNumbers.length < quantityNumbers) {
@@ -46,14 +45,13 @@ export function getRandomNumber(quantityNumbers: number): number[] {
             randomNumbers.push(randomNumber);
         }
     }
-    console.log(randomNumbers);
     return randomNumbers;
 }
 
 // Função para selecionar imagens aleatórias sem repetição
-export function selectRandomImages(numPairs: number): void {
+export function selectRandomImages(numPairs: number) {
     const randomIndexes = getRandomNumber(numPairs);
-    selectedImages = randomIndexes.map(index => IMAGES[index]);
+    return randomIndexes.map(index => IMAGES[index]);
     
 }
 
