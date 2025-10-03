@@ -36,9 +36,9 @@ Projeto de front end desenvolvido para o curso do BFD baseado no projeto <a href
 - [x] Task 4 - Estruturação do projeto
 - [x] Task 5 - Desgin da pagina
 - [x] Task 6 - Responsividade
-- [] Task 7 - Teste em várias plataformas
-- [] Task 8 - Animações
-- [] Task 9 - Logica do jogo
+- [X] Task 7 - Teste da responsividade em várias plataformas
+- [X] Task 8 - Animações
+- [] Task 9 - Logica do jogo - Em andamento 
 - [] Task 10 - Teste final com usuários reais
 - [] Task 11 - Deploy
 
@@ -47,6 +47,7 @@ Projeto de front end desenvolvido para o curso do BFD baseado no projeto <a href
 - [] Mensagem de vitoria e de derrota
 - [] Botão de reiniciar o jogo 
 - [] Contar o tempo de jogo
+- [] Escolher a dificuldade
 - [] Aumentar automaticamente a quantidade de cards de imagens
 
 ## ❌ Dificuldades do projeto
