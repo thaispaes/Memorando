@@ -1,3 +1,5 @@
+import { validatePoints } from "./points.js";
+
 // Array de Objetos com cada imagem do jogo e seus atributos
 export const IMAGES = [
   { id: 0, src: "./assets/img/gameIcons/image1.png", alt: "Image 1" },
@@ -35,6 +37,11 @@ export const IMAGES = [
   { id: 32, src: "./assets/img/gameIcons/image33.png", alt: "Image 33" },
   { id: 33, src: "./assets/img/gameIcons/image34.png", alt: "Image 34" },
 ];
+
+let firstCardSelected = null;
+let secondCardSelected = null;
+let isProcessing = false; // Flag para evitar cliques durante processamento
+
 // Função para gerar números aleatórios sem repetição
 export function getRandomNumber(quantityNumbers) {
   var randomNumbers = [];
@@ -47,6 +54,7 @@ export function getRandomNumber(quantityNumbers) {
   }
   return randomNumbers;
 }
+
 // Função para selecionar imagens aleatórias sem repetição
 export function selectRandomImages(numPairs) {
   var randomIndexes = getRandomNumber(numPairs);
@@ -74,5 +82,50 @@ export function randomImages(dificultyLevel) {
 
   for (let i = 0; i < gameImageCard.length; i++) {
     gameImageCard[i].src = suffledImages[i].src;
+    gameImageCard[i].alt = suffledImages[i].alt;
+  }
+}
+
+export function selectedImage(cardElement) {
+  // Evita cliques durante processamento ou em cartas já viradas
+  if (isProcessing || cardElement.classList.contains("flipped")) {
+    return;
+  }
+
+  // Vira a carta
+  cardElement.classList.add("flipped");
+
+  console.log("Carta selecionada:", cardElement);
+
+  if (firstCardSelected === null) {
+    // Primeira carta selecionada
+    firstCardSelected = cardElement;
+    const firstImage = firstCardSelected.querySelector(".card-game-icon");
+    console.log(
+      "Primeira carta selecionada:",
+      firstImage?.alt || "Imagem não encontrada"
+    );
+  } else if (secondCardSelected === null && cardElement !== firstCardSelected) {
+    // Segunda carta selecionada (diferente da primeira)
+    secondCardSelected = cardElement;
+    const secondImage = secondCardSelected.querySelector(".card-game-icon");
+    console.log(
+      "Segunda carta selecionada:",
+      secondImage?.alt || "Imagem não encontrada"
+    );
+
+    // Inicia processamento
+    isProcessing = true;
+
+    // Valida se as cartas combinam
+    validatePoints(firstCardSelected, secondCardSelected);
+
+    // Reset após validação
+    setTimeout(() => {
+      firstCardSelected = null;
+      secondCardSelected = null;
+      isProcessing = false;
+      console.log("Estado resetado - pronto para próxima jogada");
+    }, 1200); // Espera um pouco mais que o delay de virar as cartas
   }
 }
