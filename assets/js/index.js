@@ -1,27 +1,34 @@
-import { selectRandomImages } from "./imagens.js";
+import { randomImages } from "./imagens.js";
+import { cardGame, startButton, flipCard, showAnimatedGameBoard, showAnimatedScoreBoard, showAnimateCards } from "./animations.js";
+import { dificultyLevel } from "./dificultyLevel.js";
 
-// Definindo níveis de dificuldade
-export let dificultyLevel = {
-  easy: 6,
-  medium: 8,
-  hard: 12,
-};
+startButton.addEventListener("click", () => startGame(startButton));
 
-function suffleImages(images) {
-    const shuffled = [...images];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const randomNumber = Math.floor(Math.random() * (shuffled.length));
-        [shuffled[i], shuffled[randomNumber]] = [shuffled[randomNumber], shuffled[i]];
-    }
-    return shuffled;
-}
+cardGame.forEach(card => {
+  card.addEventListener("click", () => flipCard(card));
+});
 
-export function randomImages(dificultyLevel) {
-  const imagesContent = selectRandomImages(dificultyLevel);
-  const gameImageCard = document.getElementsByClassName("card-game-icon");
-  const suffledImages = suffleImages(imagesContent);
+// Função para iniciar o jogo
+function startGame(buttonClicked) {
 
-  for (let i = 0; i < gameImageCard.length; i++) {
-    gameImageCard[i].src = suffledImages[i].src;
-  }
+  // Adiciona a animação de fade out ao botão
+  buttonClicked.classList.add("fadeOut");
+  
+  // Após a animação do botão, mostra o gameBoard e scoreBoard
+  setTimeout(() => {
+    // Oculta completamente o botão
+    buttonClicked.style.display = "none";
+    // Remove a classe hidden e adiciona show para o gameBoard
+    showAnimatedGameBoard();
+    
+    // Inicia a animação das cartas simultaneamente com o gameBoard
+    showAnimateCards();
+
+    randomImages(dificultyLevel.medium); // Inicia o jogo com nível médio por padrão
+
+    // Mostra o scoreBoard com um pequeno delay para efeito sequencial
+    setTimeout(() => {
+      showAnimatedScoreBoard();
+    }, 800);
+  }, 500); // Espera a animação do botão terminar
 }
