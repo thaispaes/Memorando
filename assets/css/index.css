@@ -1,6 +1,7 @@
 @import url("colors.css");
 @import url("fonts.css");
 @import url("hover.css");
+@import url("");
 
 * {
   padding: 0;
@@ -102,30 +103,6 @@ main {
 
   transition: all 0.3s ease;
 
-  .startButton {
-    padding: 20px 55px;
-    background-color: var(--button-background-color);
-    color: var(--text-color-white);
-    font-size: 18px;
-    font-family: var(--dosis-bold);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.5s ease;
-  }
-
-  .startButton:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.05);
-  }
-
-  .startButton.fadeOut {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-  }
 
   .gameBoard {
     display: flex;
@@ -213,6 +190,31 @@ main {
     color: var(--lighter-blue-color);
   }
 }
+
+.button {
+    padding: 20px 55px;
+    background-color: var(--button-background-color);
+    color: var(--text-color-white);
+    font-size: 18px;
+    font-family: var(--dosis-bold);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+  }
+
+  .button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+  }
+
+  .button.fadeOut {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+  }
 
 footer {
   width: 100%;

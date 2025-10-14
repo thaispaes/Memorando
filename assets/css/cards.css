@@ -1,0 +1,53 @@
+/* From Uiverse.io by Yaseen549 */ 
+@import url(colors.css);
+@import url(fonts.css);
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 10px;
+    border-radius: 30px;
+    background: var(--dark-blue-color);
+    box-shadow: 15px 15px 30px rgb(7, 33, 71),
+                -15px -15px 30px rgb(7, 33, 71);
+
+    picture {
+        padding: 10px;
+    }
+
+    img#winnerImage {
+        width: 180px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    img#loserImage {
+        width: 150px;
+        height: 180px;
+        object-fit: cover;
+    }
+
+
+    h1{
+        color: var(--white-color);
+        font-family: var(--pt-sans-regular);
+        font-size: 20px;
+        letter-spacing: 5px;
+        text-align: center;
+    }
+
+    .resetButton{
+        width: 100px;
+        height: 50px;
+        padding: 10px;
+        margin: 10px;
+        font-size: 14px;
+        text-align: center;
+
+    }
+}
+
