@@ -1,5 +1,4 @@
 import { selectedImage } from "./imagens.js";
-import { startGame } from "./index.js";
 
 export const gameBoard = document.getElementById("gameBoard");
 export const scoreBoard = document.getElementById("scoreBoard");
@@ -8,7 +7,6 @@ export const cardGame = document.querySelectorAll(".cardGame");
 export const cardGameImageSelected = document.querySelectorAll(".gameImage");
 export const winnerCard = document.getElementById("winnerCard");
 export const loserCard = document.getElementById("loserCard");
-export const resetButton = document.getElementById("resetButton");
 export const attemptsDisplay = document.getElementById("attempts");
 export const difficultyDisplay = document.getElementById("difficulty");
 export const timerDisplay = document.getElementById("timer");
@@ -18,6 +16,7 @@ export const easyButton = document.getElementById("easyButton");
 export const mediumButton = document.getElementById("mediumButton");
 export const hardButton = document.getElementById("hardButton");
 export const levelButton = document.querySelectorAll(".level-button");
+export const resetButton = document.getElementById("resetButton");
 
 
 // Função para adicionar event listeners às cartas após o jogo iniciar

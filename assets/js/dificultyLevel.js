@@ -30,8 +30,9 @@ export function validateIfYouLose(actualLevel) {
   if (attempt == actualLevel) {
     console.log("Número máximo de tentativas atingido!");
     showLoserCard();
-    resetAttempts();
     resetPoints();
+    resetAttempts();
+    resetLevel();
   } else {
     console.log(
     `Tentativas: ${attempt}, Limite de tentativas: ${actualLevel}`
