@@ -129,6 +129,7 @@ export function showGameElements(level) {
 
     // Cria as cartas primeiro
     createCardGame(currentLevel);
+    
 
     // Inicia a animação das cartas simultaneamente com o gameBoard
     showAnimateCards();
