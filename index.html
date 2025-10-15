@@ -52,11 +52,24 @@
 
       <section id="gameSection" class="gameContainer">
         <!-- Inicio do jogo -->
-        <button id="startButton" class="startButton button">
+         <section id="startSection" class="startSection">
+          <button id="startButton" class="startButton button">
           Iniciar Jogo
         </button>
+         </section>
 
-        <div class="winnerCard hidden" id="winnerCard">
+         <section id="levelSelection" class="levelSelection hidden">
+          <h2>Selecione o Nível de Dificuldade</h2>
+          <div class="buttonsContainer">
+            <button class="levelButton button" data-level="easy">Fácil</button>
+            <button class="levelButton button" data-level="medium">Médio</button>
+            <button class="levelButton button" data-level="hard">Difícil</button>
+          </div>
+        </section>
+        
+
+        
+        <section class="winnerCard hidden" id="winnerCard">
           <div class="card">
             <picture>
               <img
@@ -71,9 +84,9 @@
         </button>
           </div>
           
-        </div>
+        </section>
 
-        <div class="loserCard hidden" id="loserCard">
+        <section class="loserCard hidden" id="loserCard">
           <div class="card">
             <picture>
               <img
@@ -90,10 +103,10 @@
               Reiniciar
             </button>
           </div>
-        </div>
+        </section>
 
         <!-- GameBoard com os cards do jogo -->
-        <div id="gameBoard" class="gameBoard hidden">
+        <section id="gameBoard" class="gameBoard hidden">
           <!-- Exemplo das cartas com o Luffy -->
           <div class="cardGame" data-card-value="1">
             <div class="card-front">
@@ -194,14 +207,16 @@
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Placar do jogo, dificuldade e timer -->
-        <div id="scoreBoard" class="score-board" style="display: none">
+        <!-- Placar do jogo, dificuldade, tentativas e timer -->
+        <section id="scoreBoard" class="score-board" style="display: none">
           <p>Pontuação: <span id="score">0</span></p>
+          <p>Tentativas: <span id="attempts">0</span></p>
           <p>Tempo: <span id="timer">0</span> segundos</p>
-          <p>Dificuldade: <span id="difficulty">Facil</span></p>
-        </div>
+          <p>Dificuldade: <span id="difficulty">None</span></p>
+          
+        </section>
       </section>
 
       <!-- Mensagem de Fim de jogo -->

@@ -1,3 +1,4 @@
+import { dificultyLevel } from "./dificultyLevel.js";
 import { validatePoints } from "./points.js";
 
 // Array de Objetos com cada imagem do jogo e seus atributos
@@ -95,37 +96,28 @@ export function selectedImage(cardElement) {
   // Vira a carta
   cardElement.classList.add("flipped");
 
-  console.log("Carta selecionada:", cardElement);
-
   if (firstCardSelected === null) {
     // Primeira carta selecionada
     firstCardSelected = cardElement;
     const firstImage = firstCardSelected.querySelector(".card-game-icon");
-    console.log(
-      "Primeira carta selecionada:",
-      firstImage?.alt || "Imagem não encontrada"
-    );
+    
   } else if (secondCardSelected === null && cardElement !== firstCardSelected) {
     // Segunda carta selecionada (diferente da primeira)
     secondCardSelected = cardElement;
     const secondImage = secondCardSelected.querySelector(".card-game-icon");
-    console.log(
-      "Segunda carta selecionada:",
-      secondImage?.alt || "Imagem não encontrada"
-    );
+    
 
     // Inicia processamento
     isProcessing = true;
 
     // Valida se as cartas combinam
-    validatePoints(firstCardSelected, secondCardSelected);
+    validatePoints(firstCardSelected, secondCardSelected, dificultyLevel);
 
     // Reset após validação
     setTimeout(() => {
       firstCardSelected = null;
       secondCardSelected = null;
       isProcessing = false;
-      console.log("Estado resetado - pronto para próxima jogada");
     }, 1200); // Espera um pouco mais que o delay de virar as cartas
   }
 }

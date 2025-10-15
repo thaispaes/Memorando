@@ -104,7 +104,6 @@ main {
 
   transition: all 0.3s ease;
 
-
   .gameBoard {
     display: flex;
     flex-wrap: wrap;
@@ -163,7 +162,6 @@ main {
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
 
-  
   .card-back img {
     max-width: 90%;
     max-height: 90%;
@@ -231,29 +229,29 @@ main {
 }
 
 .button {
-    padding: 20px 55px;
-    background-color: var(--button-background-color);
-    color: var(--text-color-white);
-    font-size: 18px;
-    font-family: var(--dosis-bold);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.5s ease;
-  }
+  padding: 20px 55px;
+  background-color: var(--button-background-color);
+  color: var(--text-color-white);
+  font-size: 18px;
+  font-family: var(--dosis-bold);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.5s ease;
+}
 
-  .button:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.05);
-  }
+.button:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
 
-  .button.fadeOut {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-  }
+.button.fadeOut {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
 
 footer {
   width: 100%;

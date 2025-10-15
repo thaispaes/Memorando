@@ -1,16 +1,12 @@
-import { gameBoard, scoreBoard } from "./elements.js";
-
-// Função para virar a carta
-export function flipCard(card) {
-  card.classList.toggle("flipped");
-}
+import { gameBoard, scoreBoard, cardGame, addCardEventListeners } from "./elements.js";
+import { randomImages } from "./imagens.js";
 
 export function showAnimatedGameBoard() {
     gameBoard.classList.remove("hidden");
     gameBoard.classList.add("show");
 }
 
-export function showAnimatedScoreBoard() {
+function showAnimatedScoreBoard() {
   if (scoreBoard) {
         scoreBoard.style.display = "flex";
         scoreBoard.style.opacity = "0";
@@ -26,10 +22,8 @@ export function showAnimatedScoreBoard() {
 }
 
 // Adiciona animação sequencial para as cartas
-export function showAnimateCards() {
-  const cards = document.querySelectorAll(".cardGame");
-
-  cards.forEach((card, index) => {
+function showAnimateCards() {
+  cardGame.forEach((card, index) => {
     // Define estado inicial das cartas
     card.style.opacity = "0";
     card.style.transform = "translateY(20px) scale(0.8)";
@@ -41,4 +35,35 @@ export function showAnimateCards() {
       card.style.transform = "translateY(0) scale(1)";
     }, index * 60); // Delay reduzido para 60ms
   });
+}
+
+export function showAnimatedButton(button) {
+    button.classList.add("fadeOut");
+    // Oculta completamente o botão
+    setTimeout(() => {
+      button.style.display = "none";
+    }, 500);
+}
+
+export function showGameElements(dificultyLevel) {
+    setTimeout(() => {
+    // Remove a classe hidden e adiciona show para o gameBoard
+    showAnimatedGameBoard();
+
+    // Inicia a animação das cartas simultaneamente com o gameBoard
+    showAnimateCards();
+
+    // Gera as imagens aleatórias para o jogo
+    randomImages(dificultyLevel); // Inicia o jogo com nível fácil por padrão
+
+    // Adiciona os event listeners às cartas após elas serem criadas
+    setTimeout(() => {
+      addCardEventListeners();
+    }, 100);
+
+    // Mostra o scoreBoard com um pequeno delay para efeito sequencial
+    setTimeout(() => {
+      showAnimatedScoreBoard();
+    }, 800);
+  }, 500); // Espera a animação do botão terminar
 }
