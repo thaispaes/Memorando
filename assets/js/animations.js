@@ -1,4 +1,4 @@
-import { setLevel, getLevel } from "./dificultyLevel.js";
+import { setLevel, getLevel, setAttemptDisplay } from "./dificultyLevel.js";
 import {
   gameBoard,
   scoreBoard,
@@ -8,6 +8,7 @@ import {
   startButton,
 } from "./elements.js";
 import { randomImages, createCardGame } from "./imagens.js";
+import { startTimer } from "./time.js";
 
 export function showAnimatedGameBoard() {
   gameBoard.classList.remove("hidden");
@@ -26,7 +27,10 @@ function showAnimatedScoreBoard() {
       scoreBoard.style.opacity = "1";
       scoreBoard.style.transform = "translateY(0)";
     }, 50);
+
+    
   }
+
 }
 
 // Adiciona animação sequencial para as cartas
@@ -140,6 +144,10 @@ export function showGameElements(level) {
     // Mostra o scoreBoard com um pequeno delay para efeito sequencial
     setTimeout(() => {
       showAnimatedScoreBoard();
+      setAttemptDisplay();
+      // Inicia o timer quando o scoreBoard aparecer
+      startTimer();
+      console.log("Timer iniciado!");
     }, 800);
   }, 500); // Espera a animação do botão terminar
 }

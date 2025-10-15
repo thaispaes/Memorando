@@ -52,23 +52,39 @@
 
       <section id="gameSection" class="gameContainer">
         <!-- Inicio do jogo -->
-         <section id="startSection" class="startSection">
+        <section id="startSection" class="startSection">
           <button id="startButton" class="startButton button">
-          Iniciar Jogo
-        </button>
-         </section>
+            Iniciar Jogo
+          </button>
+        </section>
 
-         <section id="levelSelection" class="levelSelection hidden">
+        <section id="levelSelection" class="levelSelection hidden">
           <h2>Selecione o Nível de Dificuldade</h2>
           <div class="buttonsContainer">
-            <button class="levelButton button" id="easyButton" data-level="easy">Fácil</button>
-            <button class="levelButton button" id="mediumButton" data-level="medium">Médio</button>
-            <button class="levelButton button" id="hardButton" data-level="hard">Difícil</button>
+            <button
+              class="levelButton button"
+              id="easyButton"
+              data-level="easy"
+            >
+              Fácil
+            </button>
+            <button
+              class="levelButton button"
+              id="mediumButton"
+              data-level="medium"
+            >
+              Médio
+            </button>
+            <button
+              class="levelButton button"
+              id="hardButton"
+              data-level="hard"
+            >
+              Difícil
+            </button>
           </div>
         </section>
-        
 
-        
         <section class="winnerCard hidden" id="winnerCard">
           <div class="card">
             <picture>
@@ -80,10 +96,9 @@
             </picture>
             <h1>Você venceu, parabéns!</h1>
             <button id="resetButtonWinner" class="button resetButton">
-          Jogar novamente
-        </button>
+              Jogar novamente
+            </button>
           </div>
-          
         </section>
 
         <section class="loserCard hidden" id="loserCard">
@@ -106,21 +121,16 @@
         </section>
 
         <!-- GameBoard com os cards do jogo -->
-        <section id="gameBoard" class="gameBoard hidden">
-         
-          
-        </section>
+        <section id="gameBoard" class="gameBoard hidden"></section>
 
         <!-- Placar do jogo, dificuldade, tentativas e timer -->
         <section id="scoreBoard" class="score-board" style="display: none">
           <p>Pontuação: <span id="score">0</span></p>
           <p>Tentativas: <span id="attempts">0</span></p>
-          <p>Tempo: <span id="timer">0</span> segundos</p>
+          <p>Tempo: <span id="timer">00:00</span></p>
           <p>Dificuldade: <span id="difficulty">None</span></p>
-          
         </section>
       </section>
-
     </main>
     <footer>
       <p>&copy; 2025 Memorando. Todos os direitos reservados.</p>

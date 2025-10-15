@@ -1,4 +1,5 @@
 import { selectedImage } from "./imagens.js";
+import { stopTimer } from "./time.js";
 
 export const gameBoard = document.getElementById("gameBoard");
 export const scoreBoard = document.getElementById("scoreBoard");
@@ -16,14 +17,15 @@ export const easyButton = document.getElementById("easyButton");
 export const mediumButton = document.getElementById("mediumButton");
 export const hardButton = document.getElementById("hardButton");
 export const levelButton = document.querySelectorAll(".level-button");
-export const resetButton = document.getElementById("resetButtonWinner") 
+export const resetButton = document.getElementById("resetButtonWinner");
 export const resetButtonLoser = document.getElementById("resetButtonLoser");
-
 
 // Função para adicionar event listeners às cartas após o jogo iniciar
 export function addCardEventListeners() {
   // Seleciona as cartas dinamicamente para garantir que pegue as recém-criadas
-  const dynamicCardGame = cardGame.length ? cardGame : document.querySelectorAll(".cardGame");
+  const dynamicCardGame = cardGame.length
+    ? cardGame
+    : document.querySelectorAll(".cardGame");
 
   dynamicCardGame.forEach((card) => {
     card.addEventListener("click", () => {
@@ -34,12 +36,14 @@ export function addCardEventListeners() {
 }
 
 export function showWinnerCard() {
+  stopTimer(); // Para o timer quando o jogador vence
   setTimeout(() => {
     winnerCard.classList.remove("hidden");
   }, 500);
 }
 
 export function showLoserCard() {
+  stopTimer(); // Para o timer quando o jogador perde
   setTimeout(() => {
     loserCard.classList.remove("hidden");
   }, 500);

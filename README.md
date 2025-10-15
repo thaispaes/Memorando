@@ -48,7 +48,7 @@ Projeto de front end desenvolvido para o curso do BFD baseado no projeto <a href
 - [X] Botão de reiniciar o jogo 
 - [] Contar o tempo de jogo
 - [X] Escolher a dificuldade
-- [] Aumentar automaticamente a quantidade de cards de imagens
+- [X] Aumentar automaticamente a quantidade de cards de imagens
 
 ## ❌ Dificuldades do projeto
 

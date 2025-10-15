@@ -1,4 +1,8 @@
-import { attemptsDisplay, difficultyDisplay, showLoserCard } from "./elements.js";
+import {
+  attemptsDisplay,
+  difficultyDisplay,
+  showLoserCard,
+} from "./elements.js";
 import { resetPoints } from "./points.js";
 
 // Definindo níveis de dificuldade
@@ -34,9 +38,7 @@ export function validateIfYouLose(actualLevel) {
     resetAttempts();
     resetLevel();
   } else {
-    console.log(
-    `Tentativas: ${attempt}, Limite de tentativas: ${actualLevel}`
-  );
+    console.log(`Tentativas: ${attempt}, Limite de tentativas: ${actualLevel}`);
   }
 }
 
@@ -48,18 +50,24 @@ export function addAttempts(value) {
   // Adiciona as tentativas
   attempt += value;
 
+  
   // Atualiza o display de tentativas
   if (attemptsDisplay) {
-    attemptsDisplay.textContent = attempt;
+    attemptsDisplay.textContent = attempts[levelType] - attempt;
   }
-  
 }
 
-function getAttempts() { 
+function getAttempts() {
   return attempt;
 }
 
-export function setLevel(level){
+export function setAttemptDisplay() {
+  if (attemptsDisplay) {
+    attemptsDisplay.textContent = attempts[levelType];
+  }
+}
+
+export function setLevel(level) {
   levelSelected = dificultyLevel[level];
   levelType = level;
 
