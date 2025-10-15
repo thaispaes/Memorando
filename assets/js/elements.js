@@ -24,6 +24,7 @@ export function addCardEventListeners() {
   cardGame.forEach((card) => {
     card.addEventListener("click", () => {
       // Usa a função selectedImage que já gerencia a lógica do jogo
+      
       selectedImage(card);
     });
   });

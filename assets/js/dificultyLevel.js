@@ -4,8 +4,8 @@ import { resetPoints } from "./points.js";
 // Definindo níveis de dificuldade
 export const dificultyLevel = {
   easy: 8,
-  medium: 12,
-  hard: 16,
+  medium: 10,
+  hard: 12,
 };
 
 // Define o limite de pontos para cada nível de dificuldade
@@ -18,8 +18,8 @@ export const pointsLimit = {
 // Define o número de tentativas para cada nível de dificuldade
 export const attempts = {
   easy: 6,
-  medium: 10,
-  hard: 12,
+  medium: 8,
+  hard: 10,
 };
 
 let levelSelected = 0;
@@ -77,5 +77,3 @@ export function resetLevel() {
   levelSelected = 0;
   levelType = "";
 }
-
-

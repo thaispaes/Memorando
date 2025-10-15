@@ -6,7 +6,7 @@ import {
   addCardEventListeners,
   difficultyBoard,
 } from "./elements.js";
-import { randomImages } from "./imagens.js";
+import { randomImages, createCardGame } from "./imagens.js";
 
 export function showAnimatedGameBoard() {
   gameBoard.classList.remove("hidden");
@@ -127,7 +127,8 @@ export function showGameElements(level) {
     showAnimateCards();
 
     // Gera as imagens aleatórias para o jogo
-    randomImages(currentLevel); // Inicia o jogo com nível fácil por padrão
+    createCardGame(currentLevel);
+    randomImages(currentLevel); 
 
     // Adiciona os event listeners às cartas após elas serem criadas
     setTimeout(() => {

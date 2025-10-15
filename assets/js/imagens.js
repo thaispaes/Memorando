@@ -1,4 +1,5 @@
 import { dificultyLevel } from "./dificultyLevel.js";
+import { gameBoard } from "./elements.js";
 import { validatePoints } from "./points.js";
 
 // Array de Objetos com cada imagem do jogo e seus atributos
@@ -84,6 +85,49 @@ export function randomImages(dificultyLevel) {
   for (let i = 0; i < gameImageCard.length; i++) {
     gameImageCard[i].src = suffledImages[i].src;
     gameImageCard[i].alt = suffledImages[i].alt;
+  }
+}
+
+export function createCardGame(difficultyLevel) {
+  gameBoard.innerHTML = ""; // Limpa o conteúdo existente
+
+  for (let i = 0; i < difficultyLevel; i++) {
+
+    // Cria o elemento da carta
+    const cardGame = document.createElement("div");
+    cardGame.classList.add("cardGame");
+    cardGame.dataset.cardValue = i;
+
+  //Cria imagem de frente da carta
+  const cardFront = document.createElement("div");
+  cardFront.classList.add("card-front");
+
+  const imageFront = document.createElement("img");
+  imageFront.classList.add("front-image");
+  imageFront.src = "./assets/img/thinking-zoro.png"; // Imagem será atribuída depois
+  imageFront.alt = "Zoro Thinking";
+  imageFront.style.width = "80px"; // Ajusta o tamanho da imagem
+  imageFront.style.height = "120px"; // Ajusta o tamanho da imagem
+
+  // Cria a imagem de fundo da carta
+  const cardBack = document.createElement("div");
+  cardBack.classList.add("card-back");
+  cardBack.classList.add('cardGameContainer');
+
+    const imageBack = document.createElement("img");
+  imageBack.classList.add("card-game-icon");
+  imageBack.classList.add("gameImage");
+  imageBack.src = ""; // Imagem será atribuída depois
+  imageBack.alt = "Carta ${i}";
+
+    // Adiciona a imagem à carta
+    cardGame.appendChild(cardFront);
+    cardFront.appendChild(imageFront);
+    cardGame.appendChild(cardBack);
+    cardBack.appendChild(imageBack);
+
+    // Adiciona a carta ao tabuleiro
+    gameBoard.appendChild(cardGame);
   }
 }
 
