@@ -22,17 +22,19 @@ export const attempts = {
   hard: 12,
 };
 
+let levelSelected = 0;
+let levelType = "";
 let attempt = 0;
 
 export function validateIfYouLose(actualLevel) {
-  if (attempt == attempts.easy) {
+  if (attempt == actualLevel) {
     console.log("Número máximo de tentativas atingido!");
     showLoserCard();
     resetAttempts();
     resetPoints();
   } else {
     console.log(
-    `Tentativas: ${attempt}, Limite de tentativas: ${attempts.easy}`
+    `Tentativas: ${attempt}, Limite de tentativas: ${actualLevel}`
   );
   }
 }
@@ -56,7 +58,23 @@ function getAttempts() {
   return attempt;
 }
 
+export function setLevel(level){
+  levelSelected = dificultyLevel[level];
+  levelType = level;
+  console.log(`Nível selecionado: ${levelSelected}`);
+}
 
+export function getLevel() {
+  return levelSelected;
+}
 
+export function getLevelType() {
+  return levelType;
+}
+
+export function resetLevel() {
+  levelSelected = 0;
+  levelType = "";
+}
 
 

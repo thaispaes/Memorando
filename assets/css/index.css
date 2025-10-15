@@ -1,7 +1,6 @@
 @import url("colors.css");
 @import url("fonts.css");
 @import url("hover.css");
-@import url("");
 
 * {
   padding: 0;
@@ -89,6 +88,7 @@ main {
 
 .gameContainer {
   width: 100%;
+  min-height: 200px;
   margin: 15px auto 0;
   display: flex;
   flex-direction: column;
@@ -104,6 +104,105 @@ main {
 
   transition: all 0.3s ease;
 
+  .button {
+    padding: 20px 55px;
+    background-color: var(--button-background-color);
+    color: var(--text-color-white);
+    font-size: 18px;
+    font-family: var(--dosis-bold);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+  }
+
+  
+  .levelSelection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    background-color: var(--button-background-color);
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin: 20px auto;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  
+
+  .levelSelection h2 {
+    font-family: var(--pt-sans-bold);
+    font-size: 28px;
+    text-align: center;
+    color: var(--white-color);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .buttonsContainer button {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-family: var(--dosis-bold);
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+  }
+
+
+  .winnerCard,
+  .loserCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .winnerCard.hidden,
+  .loserCard.hidden {
+    display: none !important;
+  }
+
+  .winnerCard.show,
+  .loserCard.show {
+    display: flex !important;
+  }
+
+  .gameContainer.winner-overlay .gameBoard,
+  .gameContainer.winner-overlay .score-board,
+  .gameContainer.winner-overlay .button {
+    opacity: 0.2;
+    filter: blur(1px);
+    transition: all 0.3s ease;
+  }
+
   .gameBoard {
     display: flex;
     flex-wrap: wrap;
@@ -118,11 +217,7 @@ main {
     /* background-color: var(--secondary-color); */
   }
 
-  .gameBoard.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
+  
   .gameBoard.blur {
     opacity: 0.3;
     filter: blur(2px);
@@ -168,38 +263,6 @@ main {
     object-fit: contain;
   }
 
-  .winnerCard,
-  .loserCard {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .winnerCard.hidden,
-  .loserCard.hidden {
-    display: none !important;
-  }
-
-  .winnerCard.show,
-  .loserCard.show {
-    display: flex !important;
-  }
-
-  .gameContainer.winner-overlay .gameBoard,
-  .gameContainer.winner-overlay .score-board,
-  .gameContainer.winner-overlay .button {
-    opacity: 0.2;
-    filter: blur(1px);
-    transition: all 0.3s ease;
-  }
-
   .score-board {
     display: flex;
     justify-content: space-around;
@@ -226,31 +289,6 @@ main {
     font-weight: bold;
     color: var(--lighter-blue-color);
   }
-}
-
-.button {
-  padding: 20px 55px;
-  background-color: var(--button-background-color);
-  color: var(--text-color-white);
-  font-size: 18px;
-  font-family: var(--dosis-bold);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.5s ease;
-}
-
-.button:hover {
-  background-color: var(--primary-color);
-  transform: scale(1.05);
-}
-
-.button.fadeOut {
-  opacity: 0;
-  transform: scale(0.8);
-  pointer-events: none;
 }
 
 footer {

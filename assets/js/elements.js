@@ -1,4 +1,5 @@
 import { selectedImage } from "./imagens.js";
+import { startGame } from "./index.js";
 
 export const gameBoard = document.getElementById("gameBoard");
 export const scoreBoard = document.getElementById("scoreBoard");
@@ -12,6 +13,11 @@ export const attemptsDisplay = document.getElementById("attempts");
 export const difficultyDisplay = document.getElementById("difficulty");
 export const timerDisplay = document.getElementById("timer");
 export const scoreDisplay = document.getElementById("score");
+export const difficultyBoard = document.getElementById("levelSelection");
+export const easyButton = document.getElementById("easyButton");
+export const mediumButton = document.getElementById("mediumButton");
+export const hardButton = document.getElementById("hardButton");
+export const levelButton = document.querySelectorAll(".level-button");
 
 
 // Função para adicionar event listeners às cartas após o jogo iniciar
@@ -35,3 +41,6 @@ export function showLoserCard() {
   loserCard.classList.remove("hidden");
   }, 500);
 }
+
+
+

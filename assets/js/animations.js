@@ -1,24 +1,31 @@
-import { gameBoard, scoreBoard, cardGame, addCardEventListeners } from "./elements.js";
+import {  setLevel, getLevel } from "./dificultyLevel.js";
+import {
+  gameBoard,
+  scoreBoard,
+  cardGame,
+  addCardEventListeners,
+  difficultyBoard,
+} from "./elements.js";
 import { randomImages } from "./imagens.js";
 
 export function showAnimatedGameBoard() {
-    gameBoard.classList.remove("hidden");
-    gameBoard.classList.add("show");
+  gameBoard.classList.remove("hidden");
+  gameBoard.classList.add("show");
 }
 
 function showAnimatedScoreBoard() {
   if (scoreBoard) {
-        scoreBoard.style.display = "flex";
-        scoreBoard.style.opacity = "0";
-        scoreBoard.style.transform = "translateY(20px)";
-        scoreBoard.style.transition = "all 0.6s ease";
+    scoreBoard.style.display = "flex";
+    scoreBoard.style.opacity = "0";
+    scoreBoard.style.transform = "translateY(20px)";
+    scoreBoard.style.transition = "all 0.6s ease";
 
-        // Anima a entrada do scoreBoard
-        setTimeout(() => {
-          scoreBoard.style.opacity = "1";
-          scoreBoard.style.transform = "translateY(0)";
-        }, 50);
-      }
+    // Anima a entrada do scoreBoard
+    setTimeout(() => {
+      scoreBoard.style.opacity = "1";
+      scoreBoard.style.transform = "translateY(0)";
+    }, 50);
+  }
 }
 
 // Adiciona animação sequencial para as cartas
@@ -37,16 +44,82 @@ function showAnimateCards() {
   });
 }
 
-export function showAnimatedButton(button) {
-    button.classList.add("fadeOut");
-    // Oculta completamente o botão
-    setTimeout(() => {
-      button.style.display = "none";
-    }, 500);
+// Anima o botão de iniciar jogo na hora de sair de tela
+export function noShowAnimatedButton() {
+  startButton.classList.add("fadeOut");
+  // Oculta completamente o botão
+  setTimeout(() => {
+    startButton.style.display = "none";
+  }, 500);
 }
 
-export function showGameElements(dificultyLevel) {
+// Anima o botão de iniciar jogo na hora de sair de tela
+export function noShowAnimatedDificultyButton() {
+  difficultyBoard.classList.add("fadeOut");
+  // Oculta completamente o botão
+  setTimeout(() => {
+    difficultyBoard.style.display = "none";
+  }, 500);
+}
+
+function showAnimatedLevelBoard() {
+  // Remove a classe hidden e adiciona show
+  difficultyBoard.classList.remove("hidden");
+  difficultyBoard.classList.add("show");
+}
+
+// Anima os botões de seleção de nível de dificuldade
+export function showAnimatedDificultyButton() {
+  showAnimatedLevelBoard();
+
+  // Seleciona o título e os botões para animar
+  const difficultyTitle = difficultyBoard.querySelector("h2");
+  const difficultyButtons = difficultyBoard.querySelectorAll(".levelButton");
+
+  // Define estado inicial para o título
+  if (difficultyTitle) {
+    difficultyTitle.style.opacity = "0";
+    difficultyTitle.style.transform = "translateY(-20px)";
+    difficultyTitle.style.transition = "all 0.6s ease";
+  }
+
+  // Define estado inicial para os botões
+  difficultyButtons.forEach((button, index) => {
+    button.style.opacity = "0";
+    button.style.transform = "translateY(20px) scale(0.8)";
+    button.style.transition = "all 0.5s ease";
+  });
+
+  // Anima o título primeiro
+  setTimeout(() => {
+    if (difficultyTitle) {
+      difficultyTitle.style.opacity = "1";
+      difficultyTitle.style.transform = "translateY(0)";
+    }
+  }, 100);
+
+  // Anima os botões sequencialmente após o título
+  difficultyButtons.forEach((button, index) => {
     setTimeout(() => {
+      button.style.opacity = "1";
+      button.style.transform = "translateY(0) scale(1)";
+    }, 300 + index * 150); // Começa 300ms após o título, com 150ms de delay entre botões
+  });
+}
+
+export function showGameElements(level) {
+
+  // Define o nível selecionado
+  setLevel(level);
+
+  // Obtém o nível selecionado
+  const currentLevel = getLevel();
+  console.log(`Nível selecionado: ${currentLevel}`);
+
+  // Oculta o board de seleção de nível
+  noShowAnimatedDificultyButton();
+  
+  setTimeout(() => {
     // Remove a classe hidden e adiciona show para o gameBoard
     showAnimatedGameBoard();
 
@@ -54,7 +127,7 @@ export function showGameElements(dificultyLevel) {
     showAnimateCards();
 
     // Gera as imagens aleatórias para o jogo
-    randomImages(dificultyLevel); // Inicia o jogo com nível fácil por padrão
+    randomImages(currentLevel); // Inicia o jogo com nível fácil por padrão
 
     // Adiciona os event listeners às cartas após elas serem criadas
     setTimeout(() => {

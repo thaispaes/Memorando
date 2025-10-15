@@ -4,14 +4,6 @@
   z-index: 2;
 }
 
-/*.card-front::before {
-    content: "?";
-    color: var(--text-color-white);
-    font-size: 48px;
-    font-weight: bold;
-    font-family: var(--dosis-bold);
-  } */
-
 .card-back {
   background-color: var(--button-background-color);
   transform: rotateY(180deg);
@@ -27,11 +19,37 @@
 }
 
 .cardGame:hover:not(.flipped) {
-    transform: translateY(-5px) !important;
-  }
+  transform: translateY(-5px) !important;
+}
 
 .cardGame:hover {
-    transform: translateY(5px) !important;
+  transform: translateY(5px) !important;
+}
+
+.button:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.button.fadeOut {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.buttonsContainer button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  color: var(--light-blue-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.levelSelection.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gameBoard.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-
-

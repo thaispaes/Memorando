@@ -1,5 +1,5 @@
 import { cardGame, scoreDisplay, showWinnerCard } from "./elements.js";
-import { addAttempts , validateIfYouLose, pointsLimit, attempts } from "./dificultyLevel.js";
+import { addAttempts , validateIfYouLose, pointsLimit, attempts, getLevelType } from "./dificultyLevel.js";
 
 
 // Variável para armazenar os pontos do jogador 
@@ -72,6 +72,9 @@ export function validatePoints(firstCard, secondCard) {
   // Compara os atributos 'alt' das imagens para verificar se são iguais
   const idImageSelected1 = firstImage.getAttribute("alt");
   const idImageSelected2 = secondImage.getAttribute("alt");
+  const currentLevelType = getLevelType();
+
+  console.log(`level atual: ${currentLevelType}`);
 
   // Se as imagens forem iguais, adiciona pontos
   if (idImageSelected1 === idImageSelected2) {
@@ -93,6 +96,6 @@ export function validatePoints(firstCard, secondCard) {
   }
 
   // Verifica se o jogador atingiu o limite de pontos para vencer ou o limite de tentativas
-  validateIfYouWin(pointsLimit.easy);
-  validateIfYouLose(attempts.easy);
+  validateIfYouWin(pointsLimit[currentLevelType]);
+  validateIfYouLose(attempts[currentLevelType]);
 }
