@@ -1,12 +1,12 @@
-import { cardGame } from "./elements.js";
+import { cardGame, winnerCard } from "./elements.js";
 import { dificultyLevel } from "./dificultyLevel.js";
 
 let points = 0;
 
 const pointsLimit = {
-  easy: dificultyLevel.easy/2,
-  medium: dificultyLevel.medium/2,
-  hard: dificultyLevel.hard/2,
+  easy: dificultyLevel.easy / 2,
+  medium: dificultyLevel.medium / 2,
+  hard: dificultyLevel.hard / 2,
 };
 
 export function getPoints() {
@@ -26,16 +26,33 @@ export function addPoints(value) {
 export function resetPoints(level) {
   const scoreDisplay = document.getElementById("score");
 
-  console.log(`Ponto atual: ${scoreDisplay.textContent}, Limite de pontos: ${level}`);
+  console.log(
+    `Ponto atual: ${scoreDisplay.textContent}, Limite de pontos: ${level}`
+  );
 
   if (scoreDisplay.textContent == level) {
-    scoreDisplay.textContent = 0;
+    showWinnerCard();
+    setTimeout(() => {
+      points = 0;
+       scoreDisplay.textContent = 0;
+    }, 2000); // Reseta os pontos após 2 segundos
+    
+    // Desabilita todas as cartas para evitar mais interações
     cardGame.forEach((card) => {
       card.style.pointerEvents = "none";
     });
-    console.log("Parabéns! Você venceu o jogo!");   
   }
-    
+}
+
+export function showWinnerCard() {
+  setTimeout(() => {
+    winnerCard.classList.remove("hidden");
+  }, 500);
+  
+}
+
+export function showLoserCard() {
+  loserCard.classList.remove("hidden");
 }
 
 export function validatePoints(firstCard, secondCard) {
@@ -63,7 +80,7 @@ export function validatePoints(firstCard, secondCard) {
     setTimeout(() => {
       firstCard.classList.remove("flipped");
       secondCard.classList.remove("flipped");
-    }, 1000); // Espera 1 segundo antes de virar de volta
+    }, 500); // Espera 500 milissegundos antes de virar de volta
   }
 
   // Verifica se o jogador atingiu o limite de pontos para vencer

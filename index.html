@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="stylesheet" href="./assets/css/animations.css" />
+    <link rel="stylesheet" href="./assets/css/cards.css" />
     <script type="module" src="./assets/js/index.js" defer></script>
     <script type="module" src="./assets/js/animations.js" defer></script>
     <title>Memorando</title>
@@ -56,18 +57,51 @@
         </button>
 
         <div class="winnerCard hidden" id="winnerCard">
-
+          <div class="card">
+            <picture>
+              <img
+                id="winnerImage"
+                src="../assets/img/happy-luffy.png"
+                alt="winner"
+              />
+            </picture>
+            <h1>Você venceu, parabéns!</h1>
+            <button id="resetButton" class="button resetButton">
+          Jogar novamente
+        </button>
+          </div>
+          
         </div>
 
+        <div class="loserCard hidden" id="loserCard">
+          <div class="card">
+            <picture>
+              <img
+                id="loserImage"
+                src="../assets/img/sad-luffy.png"
+                alt="loser"
+              />
+            </picture>
+            <section>
+              <h1>Tentativas esgotadas, tente novamente!</h1>
+            </section>
+
+            <button id="resetButton" class="button resetButton">
+              Reiniciar
+            </button>
+          </div>
         </div>
 
         <!-- GameBoard com os cards do jogo -->
-        <div id="gameBoard" class="gameBoard  hidden">
-
+        <div id="gameBoard" class="gameBoard hidden">
           <!-- Exemplo das cartas com o Luffy -->
           <div class="cardGame" data-card-value="1">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -75,7 +109,11 @@
           </div>
           <div class="cardGame" data-card-value="1">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -84,7 +122,11 @@
           <!-- Exemplo das cartas com outros modelos -->
           <div class="cardGame" data-card-value="2">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -92,16 +134,24 @@
           </div>
           <div class="cardGame" data-card-value="2">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
             </div>
           </div>
-          
+
           <div class="cardGame" data-card-value="3">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -109,7 +159,11 @@
           </div>
           <div class="cardGame" data-card-value="3">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -118,7 +172,11 @@
 
           <div class="cardGame" data-card-value="4">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -126,7 +184,11 @@
           </div>
           <div class="cardGame" data-card-value="4">
             <div class="card-front">
-              <img src="./assets/img/thinking-zoro.png" width="80px" height="120px">
+              <img
+                src="./assets/img/thinking-zoro.png"
+                width="80px"
+                height="120px"
+              />
             </div>
             <div class="card-back cardGameContainer">
               <img class="card-game-icon gameImage" src="" alt="Carta 1" />
@@ -134,7 +196,6 @@
           </div>
         </div>
 
-        
         <!-- Placar do jogo, dificuldade e timer -->
         <div id="scoreBoard" class="score-board" style="display: none">
           <p>Pontuação: <span id="score">0</span></p>
