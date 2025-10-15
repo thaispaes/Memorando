@@ -1,10 +1,11 @@
-import {  setLevel, getLevel } from "./dificultyLevel.js";
+import { setLevel, getLevel } from "./dificultyLevel.js";
 import {
   gameBoard,
   scoreBoard,
   cardGame,
   addCardEventListeners,
   difficultyBoard,
+  startButton,
 } from "./elements.js";
 import { randomImages, createCardGame } from "./imagens.js";
 
@@ -108,7 +109,6 @@ export function showAnimatedDificultyButton() {
 }
 
 export function showGameElements(level) {
-
   // Define o nível selecionado
   setLevel(level);
 
@@ -118,22 +118,24 @@ export function showGameElements(level) {
 
   // Oculta o board de seleção de nível
   noShowAnimatedDificultyButton();
-  
+
   setTimeout(() => {
     // Remove a classe hidden e adiciona show para o gameBoard
     showAnimatedGameBoard();
+
+    // Cria as cartas primeiro
+    createCardGame(currentLevel);
 
     // Inicia a animação das cartas simultaneamente com o gameBoard
     showAnimateCards();
 
     // Gera as imagens aleatórias para o jogo
-    createCardGame(currentLevel);
-    randomImages(currentLevel); 
+    randomImages(currentLevel);
 
     // Adiciona os event listeners às cartas após elas serem criadas
     setTimeout(() => {
       addCardEventListeners();
-    }, 100);
+    }, 200); // Aumentei o tempo para garantir que as cartas estejam criadas
 
     // Mostra o scoreBoard com um pequeno delay para efeito sequencial
     setTimeout(() => {

@@ -80,11 +80,17 @@ function suffleImages(images) {
 export function randomImages(dificultyLevel) {
   const imagesContent = selectRandomImages(dificultyLevel);
   const gameImageCard = document.getElementsByClassName("card-game-icon");
+  const cardGameElements = document.querySelectorAll(".cardGame");
   const suffledImages = suffleImages(imagesContent);
 
   for (let i = 0; i < gameImageCard.length; i++) {
     gameImageCard[i].src = suffledImages[i].src;
     gameImageCard[i].alt = suffledImages[i].alt;
+
+    // Define o data-card-value baseado no ID da imagem para comparação
+    if (cardGameElements[i]) {
+      cardGameElements[i].dataset.cardValue = suffledImages[i].id;
+    }
   }
 }
 
@@ -92,33 +98,32 @@ export function createCardGame(difficultyLevel) {
   gameBoard.innerHTML = ""; // Limpa o conteúdo existente
 
   for (let i = 0; i < difficultyLevel; i++) {
-
     // Cria o elemento da carta
     const cardGame = document.createElement("div");
     cardGame.classList.add("cardGame");
-    cardGame.dataset.cardValue = i;
+    // Removendo o data-card-value por enquanto, será definido na randomImages
 
-  //Cria imagem de frente da carta
-  const cardFront = document.createElement("div");
-  cardFront.classList.add("card-front");
+    //Cria imagem de frente da carta
+    const cardFront = document.createElement("div");
+    cardFront.classList.add("card-front");
 
-  const imageFront = document.createElement("img");
-  imageFront.classList.add("front-image");
-  imageFront.src = "./assets/img/thinking-zoro.png"; // Imagem será atribuída depois
-  imageFront.alt = "Zoro Thinking";
-  imageFront.style.width = "80px"; // Ajusta o tamanho da imagem
-  imageFront.style.height = "120px"; // Ajusta o tamanho da imagem
+    const imageFront = document.createElement("img");
+    imageFront.classList.add("front-image");
+    imageFront.src = "./assets/img/thinking-zoro.png"; // Imagem será atribuída depois
+    imageFront.alt = "Zoro Thinking";
+    imageFront.style.width = "80px"; // Ajusta o tamanho da imagem
+    imageFront.style.height = "120px"; // Ajusta o tamanho da imagem
 
-  // Cria a imagem de fundo da carta
-  const cardBack = document.createElement("div");
-  cardBack.classList.add("card-back");
-  cardBack.classList.add('cardGameContainer');
+    // Cria a imagem de fundo da carta
+    const cardBack = document.createElement("div");
+    cardBack.classList.add("card-back");
+    cardBack.classList.add("cardGameContainer");
 
     const imageBack = document.createElement("img");
-  imageBack.classList.add("card-game-icon");
-  imageBack.classList.add("gameImage");
-  imageBack.src = ""; // Imagem será atribuída depois
-  imageBack.alt = "Carta ${i}";
+    imageBack.classList.add("card-game-icon");
+    imageBack.classList.add("gameImage");
+    imageBack.src = ""; // Imagem será atribuída depois
+    imageBack.alt = `Carta ${i}`;
 
     // Adiciona a imagem à carta
     cardGame.appendChild(cardFront);
@@ -132,8 +137,10 @@ export function createCardGame(difficultyLevel) {
 }
 
 export function selectedImage(cardElement) {
+  
   // Evita cliques durante processamento ou em cartas já viradas
   if (isProcessing || cardElement.classList.contains("flipped")) {
+    console.log("Clique ignorado - processando ou carta já virada");
     return;
   }
 
@@ -143,14 +150,9 @@ export function selectedImage(cardElement) {
   if (firstCardSelected === null) {
     // Primeira carta selecionada
     firstCardSelected = cardElement;
-    const firstImage = firstCardSelected.querySelector(".card-game-icon");
-    
   } else if (secondCardSelected === null && cardElement !== firstCardSelected) {
     // Segunda carta selecionada (diferente da primeira)
     secondCardSelected = cardElement;
-    const secondImage = secondCardSelected.querySelector(".card-game-icon");
-    
-
     // Inicia processamento
     isProcessing = true;
 
@@ -162,6 +164,7 @@ export function selectedImage(cardElement) {
       firstCardSelected = null;
       secondCardSelected = null;
       isProcessing = false;
+      console.log("Reset das cartas selecionadas");
     }, 1200); // Espera um pouco mais que o delay de virar as cartas
   }
 }

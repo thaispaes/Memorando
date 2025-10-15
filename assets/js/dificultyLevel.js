@@ -1,4 +1,4 @@
-import { attemptsDisplay, showLoserCard } from "./elements.js";
+import { attemptsDisplay, difficultyDisplay, showLoserCard } from "./elements.js";
 import { resetPoints } from "./points.js";
 
 // Definindo níveis de dificuldade
@@ -62,7 +62,23 @@ function getAttempts() {
 export function setLevel(level){
   levelSelected = dificultyLevel[level];
   levelType = level;
-  console.log(`Nível selecionado: ${levelSelected}`);
+
+  if (difficultyDisplay) {
+    difficultyDisplay.textContent = translateLevel(levelType); // Reseta o display de dificuldade
+  }
+}
+
+function translateLevel(level) {
+  switch (level) {
+    case "easy":
+      return "Fácil";
+    case "medium":
+      return "Médio";
+    case "hard":
+      return "Difícil";
+    default:
+      return "";
+  }
 }
 
 export function getLevel() {
