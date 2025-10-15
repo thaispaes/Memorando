@@ -44,7 +44,7 @@ let secondCardSelected = null;
 let isProcessing = false; // Flag para evitar cliques durante processamento
 
 // Função para gerar números aleatórios sem repetição
-export function getRandomNumber(quantityNumbers) {
+function getRandomNumber(quantityNumbers) {
   var randomNumbers = [];
   while (randomNumbers.length < quantityNumbers) {
     var randomNumber = Math.floor(Math.random() * (IMAGES.length - 1));
@@ -57,14 +57,14 @@ export function getRandomNumber(quantityNumbers) {
 }
 
 // Função para selecionar imagens aleatórias sem repetição
-export function selectRandomImages(numPairs) {
+function selectRandomImages(numPairs) {
   var randomIndexes = getRandomNumber(numPairs);
   return randomIndexes.map(function (index) {
     return IMAGES[index];
   });
 }
 
-export function suffleImages(images) {
+function suffleImages(images) {
   const shuffled = [...images];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const randomNumber = Math.floor(Math.random() * shuffled.length);
@@ -111,7 +111,7 @@ export function selectedImage(cardElement) {
     isProcessing = true;
 
     // Valida se as cartas combinam
-    validatePoints(firstCardSelected, secondCardSelected, dificultyLevel);
+    validatePoints(firstCardSelected, secondCardSelected);
 
     // Reset após validação
     setTimeout(() => {

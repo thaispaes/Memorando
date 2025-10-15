@@ -11,6 +11,7 @@ export const resetButton = document.getElementById("resetButton");
 export const attemptsDisplay = document.getElementById("attempts");
 export const difficultyDisplay = document.getElementById("difficulty");
 export const timerDisplay = document.getElementById("timer");
+export const scoreDisplay = document.getElementById("score");
 
 
 // Função para adicionar event listeners às cartas após o jogo iniciar
@@ -21,4 +22,16 @@ export function addCardEventListeners() {
       selectedImage(card);
     });
   });
+}
+
+export function showWinnerCard() {
+  setTimeout(() => {
+    winnerCard.classList.remove("hidden");
+  }, 500);
+}
+
+export function showLoserCard() {
+  setTimeout(() => {
+  loserCard.classList.remove("hidden");
+  }, 500);
 }
